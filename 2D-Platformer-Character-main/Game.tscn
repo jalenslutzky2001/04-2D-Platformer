@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Camera.gd" type="Script" id=2]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://kenney_simplifiedplatformer/PNG/Tiles/platformPack_tile001.png" type="Texture" id=4]
+[ext_resource path="res://Assets/ChangeStage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://kenney_simplifiedplatformer/PNG/Tiles/platformPack_tile015.png" type="Texture" id=6]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD.gd" type="Script" id=8]
+[ext_resource path="res://Central City.ogg" type="AudioStream" id=9]
+[ext_resource path="res://StateMachine/Player_Container.gd" type="Script" id=12]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 67, 70, 0, 70, 0, 8, 67, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 76, 76, 4, 76, 4, 2, 76, 2 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "icon.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 2 )
+0/navigation_offset = Vector2( 0, 0 )
+0/navigation = SubResource( 1 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "platformPack_tile001.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( -2, -5, 67, 70 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "platformPack_tile015.png 2"
+2/texture = ExtResource( 6 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( -6, -7, 78, 77 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 5 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="Game" type="Node2D"]
+
+[node name="Player_Container" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+collision_layer = 2
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -720896, 0, 0, -720895, 0, 0, -720894, 0, 0, -720893, 0, 0, -720892, 0, 0, -720891, 0, 0, -720890, 0, 0, -720889, 0, 0, -720888, 0, 0, -720887, 0, 0, -720886, 0, 0, -720885, 0, 0, -720884, 0, 0, -720883, 0, 0, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -720879, 0, 0, -720878, 0, 0, -720877, 0, 0, -720876, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -720872, 0, 0, -720871, 0, 0, -720870, 0, 0, -720869, 0, 0, -720868, 0, 0, -720867, 0, 0, -720866, 0, 0, -720865, 0, 0, -720864, 0, 0, -720863, 0, 0, -720862, 0, 0, -720861, 0, 0, -720860, 0, 0, -720859, 0, 0, -720858, 0, 0, -720857, 0, 0, -720856, 0, 0, -720855, 0, 0, -720854, 0, 0, -720853, 0, 0, -720852, 0, 0, -720851, 0, 0, -720850, 0, 0, -720849, 0, 0, -720848, 0, 0, -720847, 0, 0, -720846, 0, 0, -720845, 0, 0, -720844, 0, 0, -720843, 0, 0, -720842, 0, 0, -720841, 0, 0, -720840, 0, 0, -720839, 0, 0, -720838, 1, 0, -655360, 0, 0, -655302, 1, 0, -589824, 0, 0, -589766, 1, 0, -524288, 1, 0, -524230, 1, 0, -458752, 1, 0, -458694, 1, 0, -327681, 1, 0, -393216, 1, 0, -393158, 1, 0, -262145, 1, 0, -327680, 1, 0, -327622, 1, 0, -196609, 1, 0, -262144, 1, 0, -262086, 1, 0, -131073, 1, 0, -196608, 1, 0, -196550, 1, 0, -131072, 1, 0, -131014, 1, 0, -131013, 1, 0, -65536, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65478, 1, 0, -65477, 1, 0, 0, 1, 0, 58, 1, 0, 59, 1, 0, 65536, 1, 0, 65545, 1, 0, 65594, 1, 0, 131072, 1, 0, 131081, 1, 0, 131088, 1, 0, 131094, 1, 0, 131100, 1, 0, 131103, 1, 0, 131106, 1, 0, 131124, 1, 0, 131130, 1, 0, 196608, 1, 0, 196609, 1, 0, 196620, 1, 0, 196621, 1, 0, 196627, 1, 0, 196646, 1, 0, 196660, 1, 0, 196663, 1, 0, 196664, 1, 0, 196665, 1, 0, 196666, 1, 0, 262144, 1, 0, 262156, 1, 0, 262157, 1, 0, 262196, 1, 0, 262197, 1, 0, 262202, 1, 0, 393215, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327704, 1, 0, 327705, 1, 0, 327706, 1, 0, 327707, 1, 0, 327716, 1, 0, 327717, 1, 0, 327732, 1, 0, 327734, 1, 0, 327735, 1, 0, 327738, 1, 0, 458751, 1, 0, 393216, 1, 0, 393235, 1, 0, 393236, 1, 0, 393260, 1, 0, 393268, 1, 0, 393273, 1, 0, 393274, 1, 0, 458752, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458795, 1, 0, 458796, 1, 0, 458797, 1, 0, 458804, 1, 0, 458810, 1, 0, 524288, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524317, 1, 0, 524318, 1, 0, 524330, 1, 0, 524331, 1, 0, 524332, 1, 0, 524333, 1, 0, 524334, 1, 0, 524344, 1, 0, 524346, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, 1, 0, 589855, 1, 0, 589856, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 589860, 1, 0, 589861, 1, 0, 589862, 1, 0, 589863, 1, 0, 589864, 1, 0, 589865, 1, 0, 589866, 1, 0, 589867, 1, 0, 589868, 1, 0, 589869, 1, 0, 589870, 1, 0, 589871, 1, 0, 589872, 1, 0, 589873, 1, 0, 589874, 1, 0, 589875, 1, 0, 589876, 1, 0, 589877, 1, 0, 589878, 1, 0, 589879, 1, 0, 589880, 1, 0, 589881, 1, 0, 589882, 1, 0 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_bottom = 630
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+script = ExtResource( 2 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 803.273, 520.431 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2185.11, 520.431 )
+
+[node name="ChangeStage" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3632.03, 158.571 )
+
+[node name="Coin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 546.066, 507.968 )
+
+[node name="Coin2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1278.51, 338.071 )
+
+[node name="Coin3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1920.35, 473.989 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 57.3981
+margin_top = 36.0407
+margin_right = 155.398
+margin_bottom = 76.0407
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="HUD"]
+margin_left = 64.0723
+margin_top = 46.052
+margin_right = 151.072
+margin_bottom = 83.052
+text = "Score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
