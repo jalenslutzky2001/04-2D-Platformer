@@ -14,6 +14,8 @@ Enemies can kill the player.
 Added Music 
 Added Sound Effects. 
 
+I implemented everything i know so far about working with godot into this project i made sure the game lined up, there were no errors, and everything was running smoothly so it played like an actual Platformer.
+
 I used godot and multiple websites for assets and tutorials to help figure out how to do certain things in the coding department. 
 I will be able to use this knowledge to be able to create my own platformers in the future. 
 
